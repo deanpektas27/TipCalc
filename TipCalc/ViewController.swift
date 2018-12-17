@@ -1,4 +1,4 @@
-//
+// Dean Pektas
 //  ViewController.swift
 //  TipCalc
 //
