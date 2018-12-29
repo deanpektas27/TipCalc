@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05BB507521C7807E004AB1FB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05BB507421C7807E004AB1FB /* README.md */; };
+		05BB507721C886F6004AB1FB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BB507621C886F6004AB1FB /* SettingsViewController.swift */; };
 		05D7751C21C748EE00D24616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D7751B21C748EE00D24616 /* AppDelegate.swift */; };
 		05D7751E21C748EE00D24616 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D7751D21C748EE00D24616 /* ViewController.swift */; };
 		05D7752121C748EE00D24616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D7751F21C748EE00D24616 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		05BB507421C7807E004AB1FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		05BB507621C886F6004AB1FB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		05D7751821C748EE00D24616 /* TipCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D7751B21C748EE00D24616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05D7751D21C748EE00D24616 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				05D7751B21C748EE00D24616 /* AppDelegate.swift */,
 				05D7751D21C748EE00D24616 /* ViewController.swift */,
 				05D7751F21C748EE00D24616 /* Main.storyboard */,
+				05BB507621C886F6004AB1FB /* SettingsViewController.swift */,
 				05D7752221C748F000D24616 /* Assets.xcassets */,
 				05D7752421C748F000D24616 /* LaunchScreen.storyboard */,
 				05D7752721C748F000D24616 /* Info.plist */,
@@ -262,6 +265,7 @@
 			files = (
 				05D7751E21C748EE00D24616 /* ViewController.swift in Sources */,
 				05D7751C21C748EE00D24616 /* AppDelegate.swift in Sources */,
+				05BB507721C886F6004AB1FB /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
