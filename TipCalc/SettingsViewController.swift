@@ -9,12 +9,36 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
+    //var mainViewController:ViewController?
+  
+    //Access UserDefaults to change value
+    let defaults = UserDefaults.standard
+    
+    @IBOutlet weak var defTipOption: UISegmentedControl!
+    lazy var intValueDef = defaults.integer(forKey: "myInt")
+    
+    @IBAction func defTipOptionChanged(_ sender: UISegmentedControl) {
+        
+        defaults.set(defTipOption.selectedSegmentIndex, forKey: "myInt")
+        
+        //force UserDefaults to save
+        defaults.synchronize()
+        
+        //checking for segmentedControl changes in console
+        print(defaults)
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        defTipOption.selectedSegmentIndex = intValueDef
         // Do any additional setup after loading the view.
     }
+    
+    
     
 
     /*

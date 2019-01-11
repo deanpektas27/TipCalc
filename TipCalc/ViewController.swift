@@ -15,8 +15,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipOptions: UISegmentedControl!
     
+    //gets default value, changes based on settings page changes
+    let defaults = UserDefaults.standard
+    //using "lazy var" to get past "self" error
+    lazy var intValue = defaults.integer(forKey: "myInt")
+    
+   //////////////////////////////////////////
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        billField.becomeFirstResponder()
+        tipOptions.selectedSegmentIndex = intValue
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -30,6 +39,9 @@ class ViewController: UIViewController {
         view.endEditing(true)
         
     }
+   
+    //////////////////////////////////////////
+    
     
     @IBAction func calculateTip(_ sender: Any) {
         
@@ -40,7 +52,6 @@ class ViewController: UIViewController {
         let calcValue = Double(billField.text!) ?? 0
         let tip = calcValue * tipPercentages[tipOptions.selectedSegmentIndex]
         let total = calcValue + tip
-        
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)

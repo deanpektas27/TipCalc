@@ -86,7 +86,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
-                                    <segue destination="MGL-8A-w3f" kind="push" id="ccz-tf-5ic"/>
+                                    <segue destination="MGL-8A-w3f" kind="push" identifier="segue1" id="ccz-tf-5ic"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -118,11 +118,40 @@
                     <view key="view" contentMode="scaleToFill" id="Vfe-r6-MIf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="38j-hO-rJT" userLabel="tipPerc">
+                                <rect key="frame" x="16" y="143" width="343" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="10%"/>
+                                    <segment title="15%"/>
+                                    <segment title="20%"/>
+                                </segments>
+                                <color key="tintColor" red="0.1322217648" green="0.58720653550000002" blue="0.015658247180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="DefTipChanged:" destination="MGL-8A-w3f" eventType="editingChanged" id="TxX-fm-OMx"/>
+                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="RPu-9g-hI6"/>
+                                    <action selector="defTipOptionChanged:" destination="MGL-8A-w3f" eventType="valueChanged" id="om5-K3-mSP"/>
+                                    <action selector="defTipchanged:" destination="hJE-dg-Qtc" eventType="valueChanged" id="ZAl-Tk-Uf7"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Default Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oet-an-bZO">
+                                <rect key="frame" x="16" y="114" width="124" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="TvD-u5-yJc"/>
+                    <connections>
+                        <outlet property="defTipOption" destination="38j-hO-rJT" id="nPa-Xe-2D2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1A2-xM-sO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hJE-dg-Qtc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1809" y="116"/>
         </scene>
