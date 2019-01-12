@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         totalTitleLabel.alpha = 0
         
         //When alpha returns to normal, open keyboard
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.view.alpha = 1
         }) { (Bool) in            self.billField.becomeFirstResponder()
         }
@@ -55,8 +55,9 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         print("view will appear")
         // This is a good place to retrieve the default tip percentage from UserDefaults
-        tipOptions.selectedSegmentIndex = defaults.integer(forKey: "myInt")
         // and use it to update the tip amount
+        tipOptions.selectedSegmentIndex = defaults.integer(forKey: "myInt")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,7 +91,7 @@ class ViewController: UIViewController {
    
     //When editing starts, fade everything in
     @IBAction func editingBillChanged(_ sender: Any) {
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.billField.transform = CGAffineTransform(translationX: -130, y: 0)
             self.tipTitleLabel.transform = CGAffineTransform(translationX: 0, y: 10)
             self.totalTitleLabel.transform = CGAffineTransform(translationX: 0, y: 10)
@@ -106,7 +107,7 @@ class ViewController: UIViewController {
             })
         //If textbox is empty, undo animations and revert alpha
         if billField.text == "" {
-            UIView.animate(withDuration: 1, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.tipTitleLabel.transform = CGAffineTransform(translationX: 0, y: -10)
                 self.totalTitleLabel.transform = CGAffineTransform(translationX: 0, y: -10)
                 self.tipOptions.transform = CGAffineTransform(translationX: 0, y: -10)
