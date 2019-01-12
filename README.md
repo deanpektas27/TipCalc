@@ -33,8 +33,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
-
+Describe any challenges encountered while building the app:
+- Passing userDefault data between pages in the storyboard was a task I wasn't quite comfortable with in the beginning of development and ended up being the longest process I went through.
+- Creating animation, such as for the textfield sliding across the screen when it notices text (or lack thereof) was interesting because of how its coordinate system works. Telling it to go 100 pixels to the left when numbers are entered and 100 pixels back when its removed did not give my desired result. Reversing the order to its original position meant giving the translationX parameter a value of 0.
 ## License
 
 Copyright 2019 Dean Pektas
