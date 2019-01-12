@@ -59,9 +59,9 @@ class ViewController: UIViewController {
     }
     
     //keyboard can be turned off if tapping empty space (considering removal)
-    @IBAction func onTap(_ sender: Any) {
-        view.endEditing(true)
-    }
+    /*@IBAction func onTap(_ sender: Any) {
+        //view.endEditing(true)
+    }*/
    
     //When editing starts, fade everything in
     @IBAction func editingBillChanged(_ sender: Any) {
