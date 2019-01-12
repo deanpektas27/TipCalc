@@ -77,9 +77,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="njb-Yy-j3F" appends="YES" id="4xg-qy-GOS"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="Lo4-ns-e7T">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="TVJ-NN-TlL">
