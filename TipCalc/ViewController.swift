@@ -11,9 +11,13 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var tipTitleLabel: UILabel!
+    @IBOutlet weak var totalTitleLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipOptions: UISegmentedControl!
+    
+   
     
     //gets default value, changes based on settings page changes
     let defaults = UserDefaults.standard
@@ -21,25 +25,79 @@ class ViewController: UIViewController {
     lazy var intValue = defaults.integer(forKey: "myInt")
     
    //////////////////////////////////////////
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        billField.becomeFirstResponder()
+        //billField.becomeFirstResponder()
         tipOptions.selectedSegmentIndex = intValue
         // Do any additional setup after loading the view, typically from a nib.
+        view.alpha = 0
+        
+        //make everything invisible from the start until bill field editing begins
+        tipLabel.alpha = 0
+        totalLabel.alpha = 0
+        tipOptions.alpha = 0
+        tipTitleLabel.alpha = 0
+        totalTitleLabel.alpha = 0
+        
+        //When alpha returns to normal, open keyboard
+        UIView.animate(withDuration: 1, animations: {
+            self.view.alpha = 1
+        }) { (Bool) in            self.billField.becomeFirstResponder()
+        }
+        
     }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //keyboard can be turned off if tapping empty space (considering removal)
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
-        
     }
    
+    //When editing starts, fade everything in
+    @IBAction func editingBillChanged(_ sender: Any) {
+        UIView.animate(withDuration: 1, animations: {
+            self.billField.transform = CGAffineTransform(translationX: -130, y: 0)
+            self.tipTitleLabel.transform = CGAffineTransform(translationX: 0, y: 10)
+            self.totalTitleLabel.transform = CGAffineTransform(translationX: 0, y: 10)
+            self.tipOptions.transform = CGAffineTransform(translationX: 0, y: 10)
+            self.tipLabel.transform = CGAffineTransform(translationX: 0, y: 10)
+            self.totalLabel.transform = CGAffineTransform(translationX: 0, y: 10)
+            self.tipTitleLabel.alpha = 1
+            self.totalTitleLabel.alpha = 1
+            self.tipOptions.alpha = 1
+            self.tipLabel.alpha = 1
+            self.totalLabel.alpha = 1
+            self.view.backgroundColor = UIColor.green
+            })
+        //If textbox is empty, undo animations and revert alpha
+        if billField.text == "" {
+            UIView.animate(withDuration: 1, animations: {
+                self.tipTitleLabel.transform = CGAffineTransform(translationX: 0, y: -10)
+                self.totalTitleLabel.transform = CGAffineTransform(translationX: 0, y: -10)
+                self.tipOptions.transform = CGAffineTransform(translationX: 0, y: -10)
+                self.tipLabel.transform = CGAffineTransform(translationX: 0, y: -10)
+                self.totalLabel.transform = CGAffineTransform(translationX: 0, y: -10)
+                self.tipTitleLabel.alpha = 0
+                self.totalTitleLabel.alpha = 0
+                self.tipOptions.alpha = 0
+                self.tipLabel.alpha = 0
+                self.totalLabel.alpha = 0
+                self.billField.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.view.backgroundColor = UIColor.white
+            })
+        }
+    }
+    
     //////////////////////////////////////////
     
     

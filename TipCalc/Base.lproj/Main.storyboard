@@ -31,6 +31,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PC-fa-93R">
                                 <rect key="frame" x="16" y="248" width="40" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="TipTitle"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,17 +64,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rSc-Pd-y2N">
-                                <rect key="frame" x="16" y="96" width="343" height="152"/>
+                                <rect key="frame" x="150" y="96" width="343" height="152"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="94"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="editingChanged" id="Mjf-cS-xcN"/>
+                                    <action selector="editingBillChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="bju-gh-1mc"/>
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.58882875901645959" green="0.75636500634517767" blue="0.52359713009942033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="njb-Yy-j3F" appends="YES" id="4xg-qy-GOS"/>
@@ -95,7 +97,9 @@
                         <outlet property="billField" destination="rSc-Pd-y2N" id="J5g-Rv-1v0"/>
                         <outlet property="tipLabel" destination="J6r-jf-6da" id="Xox-rb-QUZ"/>
                         <outlet property="tipOptions" destination="guB-s7-mZI" id="9jB-hD-yEK"/>
+                        <outlet property="tipTitleLabel" destination="7PC-fa-93R" id="viU-HG-LQb"/>
                         <outlet property="totalLabel" destination="Xl0-3V-AuI" id="B6i-dh-DHg"/>
+                        <outlet property="totalTitleLabel" destination="6Eh-mc-aur" id="jNO-rs-75w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
