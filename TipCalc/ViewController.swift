@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var tipTitleLabel: UILabel!
     @IBOutlet weak var totalTitleLabel: UILabel!
@@ -23,13 +23,15 @@ class ViewController: UIViewController {
     let defaults = UserDefaults.standard
     //using "lazy var" to get past "self" error
     lazy var intValue = defaults.integer(forKey: "myInt")
-    
+    lazy var billFieldDef = defaults.string(forKey: "myString")
    //////////////////////////////////////////
-   
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //billField.text = billFieldDef
+        
         //billField.becomeFirstResponder()
         tipOptions.selectedSegmentIndex = intValue
         // Do any additional setup after loading the view, typically from a nib.
@@ -77,7 +79,6 @@ class ViewController: UIViewController {
     }
     
     
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -89,8 +90,11 @@ class ViewController: UIViewController {
         //view.endEditing(true)
     }*/
    
+    
+    
     //When editing starts, fade everything in
     @IBAction func editingBillChanged(_ sender: Any) {
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.billField.transform = CGAffineTransform(translationX: -130, y: 0)
             self.tipTitleLabel.transform = CGAffineTransform(translationX: 0, y: 10)
@@ -104,7 +108,13 @@ class ViewController: UIViewController {
             self.tipLabel.alpha = 1
             self.totalLabel.alpha = 1
             self.view.backgroundColor = UIColor.green
+            
             })
+        
+        defaults.set(billField.text, forKey: "myString")
+        defaults.synchronize()
+        print(billFieldDef)
+        
         //If textbox is empty, undo animations and revert alpha
         if billField.text == "" {
             UIView.animate(withDuration: 0.5, animations: {
@@ -139,6 +149,8 @@ class ViewController: UIViewController {
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        
+        
     }
     
 }
